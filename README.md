@@ -1,7 +1,5 @@
 # MVP Spring Boot + Kotlin + Kafka Connect
 
-https://confluence.jsa-group.ru/pages/viewpage.action?pageId=79692600
-
 ## Prerequisites
 ### PostgreSQL
 #### 1. Postgres' user should have database rights:

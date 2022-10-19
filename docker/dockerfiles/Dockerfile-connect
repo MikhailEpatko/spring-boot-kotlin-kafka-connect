@@ -1,0 +1,5 @@
+FROM confluentinc/cp-kafka-connect-base:7.2.1
+ENV CONNECT_PLUGIN_PATH="/usr/share/java,/usr/share/confluent-hub-components"
+RUN echo "----> Installing Connector..." && \
+    confluent-hub install --no-prompt debezium/debezium-connector-postgresql:1.9.3 && \
+    echo "----> Installed"

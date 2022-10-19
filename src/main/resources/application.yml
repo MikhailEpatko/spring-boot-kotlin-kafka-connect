@@ -1,0 +1,25 @@
+app:
+  id: 1
+
+server:
+  port: 8010
+
+spring:
+  application:
+    name: application
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    deserialization:
+      read-date-timestamps-as-nanoseconds: false
+
+kafka:
+  consumer:
+    bootstrap-servers: localhost:9092
+    client-id: ${spring.application.name}-consumer-${app.id}
+    group-id: source-consumers
+    max-poll-records: 1
+    auto-offset-reset: earliest
+    session.timeout.ms: 20000
+    # The topic's name will be created Kafka Source Connector automatically
+    app-user-topic: app_user_db.public.app_user

@@ -18,17 +18,21 @@ To change WAL level:
 ALTER SYSTEM SET wal_level = 'logical'
 ```
 2) Restart Postgres (docker container).
+#### 3. Every table should have replica identity
 
 Examples:
 
-a) using existent indexes:
+a) ID column (primary key) 
+
+b) using existent indexes:
 - Only not nullable field should be indexed
 - Indexes should be unique
 ```
 ALTER TABLE table_name REPLICA IDENTITY DEFAULT;
 ALTER TABLE table_name REPLICA IDENTITY USING INDEX table_name_field_one_field_two_key;
 ```
-b) adding column with replica identity
+
+c) adding column with replica identity
 ```
 ALTER TABLE table_name ADD COLUMN replica_id bigint GENERATED ALWAYS AS IDENTITY;
 ```
